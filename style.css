@@ -1,0 +1,233 @@
+@import url(https://fonts.google.com/specimen/Playfair+Display+SC);
+
+body { margin: 0; }
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80px;
+  position: fixed;
+  background-color: #20232A;
+  width: 100vw;
+  z-index: 1;
+}
+
+#nav-bar {
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  white-space: nowrap;
+}
+
+.nav-link {
+  font-family: Playfair Display SC, Times New Roman;
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  line-height: 75px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+@keyframes menu-button {
+  0% { background-color: #20232A; color: white;}
+  100% { background-color: #FFFFF7; color: black; font-weight: 700;}
+}
+.nav-link:hover {
+  animation-name: menu-button;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+#header-img {
+  position: fixed;
+  right: 0;
+  height: 80px;
+  z-index: 2;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1300px;
+  justify-content: center;
+  background-color: #FFFFF7;
+}
+
+#about-us-section {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "text video";
+  grid-template-columns: auto 480px;
+}
+
+h2 {
+  font-family: Playfair Display SC, Times New Roman;
+  font-style: italic;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#about-us-section h2 { grid-area: title; }
+
+#about-us-section p {
+  align-self: center;
+  text-align: justify;
+  margin-right: 50px;
+  grid-area: text;
+}
+
+iframe {
+  width: 480px;
+  height: 320px;
+  grid-area: video;
+}
+
+#pianos-section {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: 
+    "title"
+    "pianos";
+}
+
+#pianos-section h2 { grid-area: title; }
+
+#pianos  {
+  grid-area: pianos;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(333px, 1fr));
+  grid-gap: 15px;
+}
+
+.piano {
+  background-color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #20232A;
+}
+
+.piano-img {
+  width: 100%;
+  height: auto;
+}
+
+.piano-text { text-align: justify; }
+
+.piano-brand { font-weight: bold; }
+.piano-price { text-align: right; }
+
+#contact-section {
+  display: grid;
+  justify-items: center;
+}
+
+#contact-section p {
+  margin-top: 0;
+  padding-top: 0;
+  text-align: justify;
+}
+
+#form {
+  display: grid;
+  justify-items: center;
+  width: 600px;
+  grid-gap: 10px;
+  font-family: Times New Roman;
+}
+
+#email {
+  width: 100%;
+  height: 20px;
+  font-family: Times New Roman;
+  font-size: 16px;
+}
+#email:valid {
+  background-color: white;
+}
+
+#comments {
+  width: 100%;
+  height: 100px;
+  font-family: Times New Roman;
+  font-size: 16px;
+}
+
+#submit {
+  display: inline-block;
+  cursor: pointer;
+  width: 30%;
+  height: 25px;
+  font-family: Times New Roman;
+  font-size: 16px;
+  background-color: #20232A;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  box-shadow: 5px 5px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: white;
+  background-color: #20232A;
+  width: 100%;
+}
+
+#contact-information, #opening-hours, #links {
+  width: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer-title {
+  font-family: Playfair Display SC, Times New Roman;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 1400px) {
+  main { grid-template-columns: 90%; }
+}
+@media (max-width: 1000px) {
+  #header { justify-content: flex-start; }
+  #nav-bar { width: 80%; }
+  .nav-link { font-size: 3vw; }
+  #about-us-section {
+    grid-template-areas:
+      "title"
+      "text"
+      "video";
+    grid-template-columns: 100%;
+    justify-items: center;
+  }
+  #about-us-section p { margin-right: 0; }
+}
+@media (max-width: 680px) {
+  #form { width: 100%; }
+  .nav-link { font-size: 20px; }
+}
+@media (max-width: 500px) {
+  iframe {
+    width: 100%;
+    height: 280px;
+  }
+}
